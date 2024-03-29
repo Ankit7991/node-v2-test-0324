@@ -85,7 +85,7 @@ export class CalcService {
         this.operationExecution(exp, op);
       });
 
-      return `${exp.exp}`;
+      return parseInt(`${exp.exp}`);
     } catch (error) {
       throw new TypeError('Invalid expression provided');
     }
