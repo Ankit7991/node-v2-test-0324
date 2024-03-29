@@ -8,9 +8,17 @@ export class CalcController {
 
   @Post('/')
   calc(@Body() calcBody: CalcDto) {
-    const result = this.calcService.calculateExpression(calcBody);
-    return {
-      result,
-    };
+    try {
+      const result = this.calcService.calculateExpression(calcBody);
+      return {
+        result,
+      };
+    } catch (error) {
+      return {
+        status: 400,
+        message: error.message,
+        error: 'Bad Request',
+      };
+    }
   }
 }
