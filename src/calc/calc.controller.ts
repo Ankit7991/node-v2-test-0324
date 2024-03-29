@@ -17,7 +17,7 @@ export class CalcController {
       });
     } catch (error) {
       res.status(400).json({
-        status: 400,
+        statusCode: 400,
         message: error.message,
         error: 'Bad Request',
       });
